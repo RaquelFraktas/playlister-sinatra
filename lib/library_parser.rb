@@ -1,12 +1,14 @@
 class LibraryParser
   def files
     data_path = File.join(File.dirname(__FILE__), '..', 'db', 'data')
+    # binding.pry
     Dir.entries(data_path)[2..-1]
   end
 
   def self.parse
     self.new.call
   end
+  #you call LibraryParser.parse in your seed file to seed data
 
   def parse_filename(filename)
     artist_match = filename.match(/^(.*) -/)
